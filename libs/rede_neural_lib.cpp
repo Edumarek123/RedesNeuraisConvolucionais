@@ -2,19 +2,11 @@
 // Created by Edumarek on 27/06/2021.
 //
 
-#include <iostream>
 #include "rede_neural_lib.h"
-#include <sstream>
-#include <string>
-#include <fstream>
-#include <algorithm>
-#include <assert.h>
-#include <chrono>
-
 
 //------------------CONSTRUTORES&DESTRUTORES-------------------//
 
-RedeNeural::RedeNeural(int tam_Lx, int tam_Ly, vector<int> tams_hl,float alfa_learn){
+RedeNeural::RedeNeural(int tam_Lx, int tam_Ly, std::vector<int> tams_hl,float alfa_learn){
 	tam_layer_x=tam_Lx;
 	tam_layer_y=tam_Ly;
 	numero_layers=((int)tams_hl.size())+2;
@@ -89,7 +81,7 @@ void RedeNeural::imprimir_rede() {
 }
 
 void RedeNeural::salvar_rede(){
-	ofstream arquivo;
+	std::ofstream arquivo;
 	arquivo.open("rede_neural.txt");
 
 	if(arquivo.is_open()) {
@@ -110,8 +102,8 @@ void RedeNeural::salvar_rede(){
 }
 
 void RedeNeural::carregar_rede(const std::string path){
-	fstream arquivo;
-	arquivo.open(path, ios::in);
+	std::fstream arquivo;
+	arquivo.open(path, std::ios::in);
 	std::string valor, linha;
 
 	if(arquivo.is_open()) {
@@ -189,8 +181,8 @@ void RedeNeural::TreinarRede(const std::string entradas,const std::string saidas
 	int num_treinos, num_testes, num_dados, cont_treinos=0;
 	float porcentagem_acerto, LEARNING_RATEo, decaimento=0.02;
 
-	fstream arquivo_x(entradas, ios::in);
-	fstream arquivo_y(saidas_esperadas, ios::in);
+	std::fstream arquivo_x(entradas, std::ios::in);
+	std::fstream arquivo_y(saidas_esperadas, std::ios::in);
 	assert(arquivo_x.is_open());
 	assert(arquivo_y.is_open());
 
@@ -268,9 +260,9 @@ void RedeNeural::TreinarRede(const std::string entradas,const std::string saidas
 		salvar_rede();
 
 		arquivo_x.clear();
-		arquivo_x.seekg(0, ios::beg);
+		arquivo_x.seekg(0, std::ios::beg);
 		arquivo_y.clear();
-		arquivo_y.seekg(0, ios::beg);
+		arquivo_y.seekg(0, std::ios::beg);
 
 		cont_treinos++;
 	}while(porcentagem_acerto<threshold);
@@ -302,7 +294,7 @@ void covolucao_saidas(Matriz* m){ //editar
 
 int contagem_dados(std::string path_arquivo){
 	int cont=0;
-	fstream arquivo(path_arquivo, ios::in);
+	std::fstream arquivo(path_arquivo, std::ios::in);
 	std::string linha;
 
 	assert(arquivo.is_open());
@@ -318,7 +310,7 @@ int contagem_dados(std::string path_arquivo){
 Matriz* separa_dados(std::string linha) {
 	std::istringstream iss(linha);
 	std::string valor;
-	vector<float> dados;
+	std::vector<float> dados;
 	int i = 0;
 
 	while (std::getline(iss, valor, ' ')) {

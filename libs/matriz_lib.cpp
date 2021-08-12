@@ -2,11 +2,6 @@
 // Created by Edumarek on 26/06/2021.
 //
 #include "matriz_lib.h"
-#include <iostream>
-#include <cstdlib>
-#include <math.h>
-#include <assert.h>
-
 
 //------------------CONSTRUTORES&DESTRUTORES-------------------//
 

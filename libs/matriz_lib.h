@@ -5,6 +5,9 @@
 #ifndef MATRIZ_LIB_H
 #define MATRIZ_LIB_H
 #include <iostream>
+#include <cstdlib>
+#include <math.h>
+#include <assert.h>
 
 struct Matriz{
     int linhas;
@@ -12,7 +15,7 @@ struct Matriz{
     float **matriz;
 
     Matriz();
-    Matriz(int lin, int col); 
+    Matriz(int lin, int col);
     Matriz(const Matriz &m);
     ~Matriz();
 
