@@ -54,9 +54,8 @@ void Bloco::conv(Bloco* filtros, bool padding){
 	stride_c=filtros->colunas-1;
 
 	if(padding){
-		r_lin=(linhas-1)/(stride_l+1);
-		r_col=(colunas-1)/(stride_c+1);
-
+		assert((((linhas+1)%stride_l)==0 && ((colunas+1)%stride_c)==0) || (filtros->linhas==linhas+2 && filtros->colunas==colunas+2));
+		
 		Bloco* temp=new Bloco(linhas+2, colunas+2, profundidade);
 
 		for(int k=0;k<temp->profundidade;k++)
@@ -77,11 +76,11 @@ void Bloco::conv(Bloco* filtros, bool padding){
 		delete temp;
 	}
 	else{
-		r_lin=(linhas-1)/stride_l;
-		r_col=(colunas-1)/stride_c;
+		assert((((linhas-1)%stride_l)==0 && ((colunas-1)%stride_c)==0) || (filtros->linhas==linhas && filtros->colunas==colunas));
 	}
 
-	assert((((linhas-1)%stride_l)==0 && ((colunas-1)%stride_c)==0) || (filtros->linhas==linhas && filtros->colunas==colunas));
+	r_lin=(linhas-1)/stride_l;
+	r_col=(colunas-1)/stride_c;
 
 	Bloco* resultado=new Bloco(r_lin, r_col, profundidade);
 
@@ -118,8 +117,8 @@ void Bloco::maxpool(int stride_l,int stride_c){
 					for(int c=0;c<stride_c;c++)
 						if(bloco[k]->matriz[i+l][j+c]>max)
 							max=bloco[k]->matriz[l+i][c+j];
-					resultado->bloco[k]->matriz[y][x]=max;
-				}
+				resultado->bloco[k]->matriz[y][x]=max;
+			}
 	bloco.clear();
 	bloco.swap(resultado->bloco);
 
