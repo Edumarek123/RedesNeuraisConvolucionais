@@ -1,1 +1,3 @@
 # RedesNeuraisConvolucionais
+
+Projeto em andamento.
