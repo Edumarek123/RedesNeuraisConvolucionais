@@ -2,52 +2,62 @@
 
 # Convolutional Neural Networks
 
-**An exploration of convolutional neural-network capabilities for computer vision.**
+**An evolving codebase exploring convolutional neural networks and computer-vision concepts.**
 
 ![Domain](https://img.shields.io/badge/domain-computer%20vision-6f42c1)
-![Topic](https://img.shields.io/badge/topic-CNN%20%2F%20ANN-0A7F8C)
-![Status](https://img.shields.io/badge/status-in%20development-orange)
+![Topic](https://img.shields.io/badge/topic-neural%20networks-0A7F8C)
+![Status](https://img.shields.io/badge/status-exploratory-orange)
 
 </div>
 
+## Contents
+
+- [Overview](#overview)
+- [Project direction](#project-direction)
+- [CNN concepts](#cnn-concepts)
+- [Repository structure](#repository-structure)
+- [Getting started](#getting-started)
+- [Current limitations](#current-limitations)
+- [License](#license)
+
 ## Overview
 
-This repository documents an ongoing effort to extend a previously developed artificial neural-network library with convolutional neural-network (CNN) functionality.
+This repository is an exploratory project focused on convolutional neural networks (CNNs) and their application to computer vision. The current repository structure contains a `libs/` directory for library-related material.
 
-The project direction is computer vision: moving beyond a general neural-network implementation toward architectures designed to process spatially structured input such as images.
+The project description identifies the intention to extend an existing artificial-neural-network codebase with convolutional capabilities.
 
-## Project goals
+## Project direction
 
-- Explore convolutional neural-network architecture
-- Integrate CNN concepts with an existing neural-network codebase
-- Study image-oriented feature extraction
-- Build a foundation for computer-vision experiments
+The intended development path is to study and implement image-oriented neural-network operations while reusing or extending existing neural-network components.
 
-## Repository contents
+## CNN concepts
+
+A convolutional network commonly combines:
+
+- **Convolution:** learns local spatial filters from input data.
+- **Activation:** introduces non-linearity.
+- **Pooling or downsampling:** reduces spatial dimensions.
+- **Feature hierarchy:** combines local patterns into higher-level representations.
+- **Output layer:** maps extracted features to a task-specific result.
+
+These are explanatory concepts, not a claim that every layer is already implemented in this repository.
+
+## Repository structure
 
 ```text
-.
+RedesNeuraisConvolucionais/
 ├── libs/
 └── README.md
 ```
 
-The `libs/` directory contains the library-related material currently present in the repository.
-
-## Concepts
-
-- Artificial neural networks
-- Convolutional layers
-- Image features and spatial structure
-- Computer-vision workflows
-
 ## Getting started
 
-The repository does not currently include a documented build or execution procedure. Begin by inspecting the contents of `libs/` and identifying its source files, dependencies, and build configuration.
+The current repository does not document a build system, language standard, dependencies, or runnable example. Begin by inspecting `libs/` to identify the source files and current implementation state before attempting to compile or integrate it.
 
-## Development status
+## Current limitations
 
-The original project description marks the work as ongoing. This README therefore presents the intended direction, not a claim of a complete CNN framework or production-ready vision system.
+A reproducible usage example, architecture diagram tied to implemented classes, test suite, and training/inference demonstration are not yet documented. The project should be presented as an evolving codebase rather than a completed CNN framework.
 
 ## License
 
-No license file was identified in the repository. Contact the author before redistributing or reusing the project.
+No `LICENSE` file is currently included. Unless a license is added, reuse and redistribution permissions are not granted by this repository.
